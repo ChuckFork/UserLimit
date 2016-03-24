@@ -24,6 +24,5 @@ Thumbs.db
 obj/
 [Rr]elease*/
 _ReSharper*/
-[Tt]est[Rr]esult*
-Ets.WapNew/Logs
+packages
 *.suo 
