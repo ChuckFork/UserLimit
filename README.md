@@ -1,7 +1,7 @@
 # 权限管理工具的说明文件
 	1.基于VS2012开发，数据库基于Sql2008以上,.NET FrameWork基于V4.0。
 	2.该项目基于Entity FrameWork开发，可自行生成数据库。
-	3.该项目详细博客:<a href="http://www.cnblogs.com/hanyinglong/archive/2013/03/22/2976478.html">博客地址</a>
+	3.该项目详细博客:http://www.cnblogs.com/hanyinglong/archive/2013/03/22/2976478.html
 	4.开源说明：本项目开源，大家可以下载二次开发或者使用。
 	5.版权所有：该软件归开发者本人(Kencery 韩迎龙)所有，如需二次开发或者使用请备注开发者说明。
 	6.吃水不忘挖井人
