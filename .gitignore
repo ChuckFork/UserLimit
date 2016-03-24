@@ -27,3 +27,6 @@ _ReSharper*/
 packages
 *.suo 
 Lib
+
+#vs2015自动生成的
+.vs
