@@ -17,7 +17,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.BasePermissionRepository;
+            CurrentRepository = DbSession.BasePermissionRepository;
         }
 	}
 	 public partial class BasePermissionGroupService : BaseService<BasePermissionGroup>, IBasePermissionGroupService
@@ -25,7 +25,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.BasePermissionGroupRepository;
+            CurrentRepository = DbSession.BasePermissionGroupRepository;
         }
 	}
 	 public partial class BaseRoleService : BaseService<BaseRole>, IBaseRoleService
@@ -33,7 +33,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.BaseRoleRepository;
+            CurrentRepository = DbSession.BaseRoleRepository;
         }
 	}
 	 public partial class BaseUserService : BaseService<BaseUser>, IBaseUserService
@@ -41,7 +41,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.BaseUserRepository;
+            CurrentRepository = DbSession.BaseUserRepository;
         }
 	}
 	 public partial class R_Group_PermissionService : BaseService<R_Group_Permission>, IR_Group_PermissionService
@@ -49,7 +49,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_Group_PermissionRepository;
+            CurrentRepository = DbSession.R_Group_PermissionRepository;
         }
 	}
 	 public partial class R_Group_RoleService : BaseService<R_Group_Role>, IR_Group_RoleService
@@ -57,7 +57,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_Group_RoleRepository;
+            CurrentRepository = DbSession.R_Group_RoleRepository;
         }
 	}
 	 public partial class R_Group_UserService : BaseService<R_Group_User>, IR_Group_UserService
@@ -65,7 +65,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_Group_UserRepository;
+            CurrentRepository = DbSession.R_Group_UserRepository;
         }
 	}
 	 public partial class R_Role_PermissionService : BaseService<R_Role_Permission>, IR_Role_PermissionService
@@ -73,7 +73,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_Role_PermissionRepository;
+            CurrentRepository = DbSession.R_Role_PermissionRepository;
         }
 	}
 	 public partial class R_User_PermissionService : BaseService<R_User_Permission>, IR_User_PermissionService
@@ -81,7 +81,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_User_PermissionRepository;
+            CurrentRepository = DbSession.R_User_PermissionRepository;
         }
 	}
 	 public partial class R_User_RoleService : BaseService<R_User_Role>, IR_User_RoleService
@@ -89,7 +89,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.R_User_RoleRepository;
+            CurrentRepository = DbSession.R_User_RoleRepository;
         }
 	}
 }

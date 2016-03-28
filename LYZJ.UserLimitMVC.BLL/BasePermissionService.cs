@@ -18,7 +18,7 @@ namespace LYZJ.UserLimitMVC.BLL
         /// <returns>返回结果</returns>
         public IQueryable<BasePermission> LoadSearchDate(PermissionQuery permissionInfo)
         {
-            var temp = _DbSession.BasePermissionRepository.LoadEntities(c => true);
+            var temp = DbSession.BasePermissionRepository.LoadEntities(c => true);
             if (!string.IsNullOrEmpty(permissionInfo.PerMission))
             {
                 temp = temp.Where<BasePermission>(c => c.PerMission.Contains(permissionInfo.PerMission));
@@ -56,12 +56,12 @@ namespace LYZJ.UserLimitMVC.BLL
         {
             foreach (var ID in list)
             {
-                _DbSession.BasePermissionRepository.DeleteEntity(new BasePermission()
+                DbSession.BasePermissionRepository.DeleteEntity(new BasePermission()
                 {
                     ID = ID
                 });
             }
-            return _DbSession.SaveChanges();
+            return DbSession.SaveChanges();
         }
     }
 }

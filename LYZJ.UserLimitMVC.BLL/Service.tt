@@ -35,7 +35,7 @@ namespace LYZJ.UserLimitMVC.BLL
 		//只要想操作数据库，我们只要拿到DbSession就行
         public override void SetCurrentRepository()
         {
-            CurrentRepository = _DbSession.<#=entity.Name#>Repository;
+            CurrentRepository = DbSession.<#=entity.Name#>Repository;
         }
 	}
 <#}#>

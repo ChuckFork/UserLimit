@@ -17,7 +17,7 @@ namespace LYZJ.UserLimitMVC.BLL
         //只要想操作数据库，我们只要拿到DbSession就行
         //public override void SetCurrentRepository()
         //{
-        //    CurrentRepository = _DbSession.UserInfoRepository;
+        //    CurrentRepository = DbSession.UserInfoRepository;
         //} 
         #endregion
 
@@ -62,7 +62,7 @@ namespace LYZJ.UserLimitMVC.BLL
 
 
             //在这里会去数据库检查是否有数据，如果没有的话就会返回一个空值
-            var LoginUserInfoCheck = _DbSession.BaseUserRepository.LoadEntities(u => u.UserName == userInfo.UserName && u.AuditStatus == "已审核" && u.Enabled == 1).FirstOrDefault();
+            var LoginUserInfoCheck = DbSession.BaseUserRepository.LoadEntities(u => u.UserName == userInfo.UserName && u.AuditStatus == "已审核" && u.Enabled == 1).FirstOrDefault();
             //对返回的结果进行判断
             if (LoginUserInfoCheck == null)
             {
@@ -90,7 +90,7 @@ namespace LYZJ.UserLimitMVC.BLL
             {
                 return LoginResult.UserIsNull;
             }
-            var checkUserName = _DbSession.BaseUserRepository.LoadEntities(u => u.UserName == UserName).FirstOrDefault();
+            var checkUserName = DbSession.BaseUserRepository.LoadEntities(u => u.UserName == UserName).FirstOrDefault();
             if (checkUserName != null)
             {
                 return LoginResult.UserExist;
@@ -110,12 +110,12 @@ namespace LYZJ.UserLimitMVC.BLL
         {
             foreach (var deleteID in deleteIds)
             {
-                _DbSession.BaseUserRepository.DeleteEntity(new BaseUser()
+                DbSession.BaseUserRepository.DeleteEntity(new BaseUser()
                 {
                     ID = deleteID
                 });
             }
-            return _DbSession.SaveChanges();
+            return DbSession.SaveChanges();
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace LYZJ.UserLimitMVC.BLL
         /// <returns>返回用户类的IQueryable集合</returns>
         public IQueryable<BaseUser> LoadSearchData(UserInfoQuery query)
         {
-            var temp = _DbSession.BaseUserRepository.LoadEntities(u => true);
+            var temp = DbSession.BaseUserRepository.LoadEntities(u => true);
             //首先过滤姓名
             if (!string.IsNullOrEmpty(query.RealName))
             {
@@ -162,7 +162,7 @@ namespace LYZJ.UserLimitMVC.BLL
         public bool SetBaseUserRole(int userID, List<int> roleIDs, BaseUser userInfo)
         {
             //首先根据传递过来的userID判断用户是否存在
-            var currentUserInfo = _DbSession.BaseUserRepository.LoadEntities(c => c.ID == userID).FirstOrDefault();
+            var currentUserInfo = DbSession.BaseUserRepository.LoadEntities(c => c.ID == userID).FirstOrDefault();
             if (currentUserInfo == null)
             {
                 return false;
@@ -171,10 +171,10 @@ namespace LYZJ.UserLimitMVC.BLL
             var listRoles = currentUserInfo.R_UserInfo_Role.ToList();
             foreach (var t in listRoles)
             {
-                _DbSession.R_User_RoleRepository.DeleteEntity(t);
+                DbSession.R_User_RoleRepository.DeleteEntity(t);
             }
             //真正的删除了这个用户下面的所有的数据
-            _DbSession.SaveChanges();
+            DbSession.SaveChanges();
             //然后重新给这个用户赋予权限
             foreach (var roleID in roleIDs)
             {
@@ -188,10 +188,10 @@ namespace LYZJ.UserLimitMVC.BLL
                 var user = userInfo;
                 rUserInfoRole.CreateUserID = user.Code;
                 rUserInfoRole.CreateBy = user.UserName;
-                _DbSession.R_User_RoleRepository.AddEntity(rUserInfoRole);
+                DbSession.R_User_RoleRepository.AddEntity(rUserInfoRole);
             }
            //执行真正的添加
-            _DbSession.SaveChanges();
+            DbSession.SaveChanges();
             return true;
         }
     }

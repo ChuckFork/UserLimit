@@ -18,7 +18,7 @@ namespace LYZJ.UserLimitMVC.BLL
         /// <returns>返回结果</returns>
         public IEnumerable<BasePermissionGroup> LoadSearchDate(PermissionGroupQuery permissionGroup)
         {
-            var temp = _DbSession.BasePermissionGroupRepository.LoadEntities(c => true);
+            var temp = DbSession.BasePermissionGroupRepository.LoadEntities(c => true);
             if (!string.IsNullOrEmpty(permissionGroup.GroupName))
             {
                 temp = temp.Where<BasePermissionGroup>(c => c.GroupName.Contains(permissionGroup.GroupName));
@@ -50,12 +50,12 @@ namespace LYZJ.UserLimitMVC.BLL
         {
             foreach (var ID in list)
             {
-                _DbSession.BasePermissionGroupRepository.DeleteEntity(new BasePermissionGroup()
+                DbSession.BasePermissionGroupRepository.DeleteEntity(new BasePermissionGroup()
                 {
                     ID = ID
                 });
             }
-            return _DbSession.SaveChanges();
+            return DbSession.SaveChanges();
         }
     }
 }

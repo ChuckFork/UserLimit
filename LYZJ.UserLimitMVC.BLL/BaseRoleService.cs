@@ -17,7 +17,7 @@ namespace LYZJ.UserLimitMVC.BLL
         //public override void SetCurrentRepository()
         //{
         //    //设置当前仓储为Role仓储
-        //    CurrentRepository = _DbSession.RoleRepository;
+        //    CurrentRepository = DbSession.RoleRepository;
         //} 
         #endregion
 
@@ -28,7 +28,7 @@ namespace LYZJ.UserLimitMVC.BLL
         /// <returns>返回实现的查询的条件</returns>
         public IQueryable<BaseRole> loadSearchDate(RoleInfoQuery roleinfo)
         {
-            var temp = _DbSession.BaseRoleRepository.LoadEntities(c => true);
+            var temp = DbSession.BaseRoleRepository.LoadEntities(c => true);
             if (!string.IsNullOrEmpty(roleinfo.RealName))
             {
                 temp = temp.Where<BaseRole>(u => u.Realname.Contains(roleinfo.RealName));
@@ -63,12 +63,12 @@ namespace LYZJ.UserLimitMVC.BLL
         {
             foreach (var ID in list)
             {
-                _DbSession.BaseRoleRepository.DeleteEntity(new BaseRole()
+                DbSession.BaseRoleRepository.DeleteEntity(new BaseRole()
                 {
                     ID = ID
                 });
             }
-            return _DbSession.SaveChanges();
+            return DbSession.SaveChanges();
         }
     }
 }
