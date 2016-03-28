@@ -5,22 +5,23 @@ using System.Web;
 using System.Web.Mvc;
 using LYZJ.UserLimitMVC.BLL;
 using LYZJ.UserLimitMVC.Common;
+using LYZJ.UserLimitMVC.IBLL;
 using LYZJ.UserLimitMVC.Model;
 
 namespace LYZJ.UserLimitMVC.UI.Portal.Controllers
 {
     public class LoginController : Controller
     {
-        /// <summary>
-        /// 实例化UserInfo接口的对象
-        /// </summary>
-        private IBLL.IBaseUserService _userInfoService = new BaseUserService();
-        
-        /// <summary>
-        /// 实现用户的登录
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Index()
+		/// <summary>
+		/// 实例化UserInfo接口的对象
+		/// </summary>
+		private IBaseUserService _userInfoService = new BaseUserService();
+
+		/// <summary>
+		/// 实现用户的登录
+		/// </summary>
+		/// <returns></returns>
+		public ActionResult Index()
         {
             return View();
         }

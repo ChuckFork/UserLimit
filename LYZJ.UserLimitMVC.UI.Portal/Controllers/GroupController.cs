@@ -5,18 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LYZJ.UserLimitMVC.BLL;
+using LYZJ.UserLimitMVC.IBLL;
 
 namespace LYZJ.UserLimitMVC.UI.Portal.Controllers
 {
     public class GroupController : BaseController
     {
-        /// <summary>
-        /// 基于结构的编程，这里也可以直接放到构造函数中实力话
-        /// </summary>
-        IBLL.IBasePermissionGroupService _permissionGroupService = new BLL.BasePermissionGroupService();
+		/// <summary>
+		/// 基于结构的编程，这里也可以直接放到构造函数中实力话
+		/// </summary>
+	    IBasePermissionGroupService _permissionGroupService = new BLL.BasePermissionGroupService();
 
-
-        public ActionResult Index()
+		public ActionResult Index()
         {
             return View();
         }
